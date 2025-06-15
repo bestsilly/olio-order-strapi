@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_olio_order_items",
+  "info": {
+    "displayName": "Order-Item",
+    "icon": "restaurant"
+  },
+  "options": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "required": true
+    },
+    "food_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::food-item.food-item"
+    },
+    "snapshot_itemName": {
+      "type": "string",
+      "required": true
+    },
+    "snapshot_unitPrice": {
+      "type": "decimal",
+      "required": true
+    }
+  },
+  "config": {}
+}

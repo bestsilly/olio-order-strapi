@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_olio_payment_details",
+  "info": {
+    "displayName": "Payment-Details",
+    "icon": "shoppingCart"
+  },
+  "options": {},
+  "attributes": {
+    "method": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "promptpay",
+        "cash_on_pickup"
+      ]
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "required": true,
+      "default": "pending",
+      "enum": [
+        "pending",
+        "paid",
+        "failed"
+      ]
+    },
+    "slipImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

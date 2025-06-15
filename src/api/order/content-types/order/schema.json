@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderId": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "pickupTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "totalAmount": {
+      "type": "decimal",
+      "required": true
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "required": true,
+      "default": "pending",
+      "enum": [
+        "pending",
+        "confirmed",
+        "preparing",
+        "ready_for_pickup",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "customerNotes": {
+      "type": "string"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "order"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::branch.branch",
+      "inversedBy": "order"
+    },
+    "items": {
+      "type": "component",
+      "component": "olio.order-item",
+      "repeatable": true
+    },
+    "paymentDetails": {
+      "type": "component",
+      "component": "olio.payment-details",
+      "repeatable": false
+    },
+    "promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promotion.promotion",
+      "inversedBy": "order"
+    }
+  }
+}

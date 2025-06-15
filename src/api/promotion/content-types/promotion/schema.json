@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "discountType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "percentage",
+        "fixed_amount"
+      ]
+    },
+    "discountValue": {
+      "type": "decimal",
+      "required": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "promotion"
+    }
+  }
+}

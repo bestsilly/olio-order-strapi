@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "food_items",
+  "info": {
+    "singularName": "food-item",
+    "pluralName": "food-items",
+    "displayName": "Food-Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "food_item"
+    },
+    "branches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::branch.branch",
+      "mappedBy": "food_item"
+    }
+  }
+}
